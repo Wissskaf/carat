@@ -396,7 +396,7 @@
                             <div class="counter">
                                 <label for="input1" class="counter-label">مبيع</label>
                                 <button class="btn-grad"  onclick="decrement('input1')">-</button>
-                                <input type="number" id="input1" value="10"  />
+                                <input type="number" id="input1" value="20"  />
                                 <button class="btn-grad"  onclick="increment('input1')">+</button>
                             </div>
 
@@ -648,7 +648,7 @@ Carat Jewelry
                };
                lower.onload = () => {
                 const imgWidth = 930; // Logo width
-               const imgHeight = 550; // Logo height
+               const imgHeight = 500; // Logo height
                const lowerPadding =1250;
 
                 ctx.drawImage(lower, (canvas.width - imgWidth) / 2, lowerPadding, imgWidth, imgHeight);
@@ -692,17 +692,19 @@ Carat Jewelry
             const quarterOtmaniCoinPrice = otmaniCoinPrice/4;
 
                const today = new Date();
-               const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'medium' }).format(today);
-       
+               const formattedDate = new Intl.DateTimeFormat('en-GB', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+              }).format(today);       
                // Table data
                const headers = [formattedDate, 'We Sell', 'We Buy'];
                const rows = [
-                   ['  Ounce Local', '$ ' +(ouncePrice+input1Value), '$ ' +(ouncePrice+input2Value)],
+                    ['  18k Gold', '$ ' +price18kBuy.toFixed(2) +'-'+((price18kBuy+15).toFixed(2)),'$ ' + price18kSell.toFixed(2)+'-'+((price18kSell+1.88).toFixed(2))],
+                    ['  21k Gold', '$ ' +price21kBuy.toFixed(2) +'-'+((price21kBuy+15).toFixed(2)),'$ ' + price21kSell.toFixed(2)+'-'+((price21kSell+2).toFixed(2))],                   ['  Ounce Local', '$ ' +(ouncePrice+input1Value), '$ ' +(ouncePrice+input2Value)],
                    ['  Ounce Valcambi', '$ ' +(ouncePrice+50), '$ ' +(ouncePrice-5)],
                    ['  Lira English', '$ ' +englishCoinPrice.toFixed(0), '$ ' +(englishCoinPrice-10).toFixed(0)],
-                   ['  Lira Ottman', '$ ' +otmaniCoinPrice.toFixed(0), '$ ' +(otmaniCoinPrice-10).toFixed(0)],
-                   ['  18k Gold', '$ ' +price18kBuy.toFixed(2),'$ ' + price18kSell.toFixed(2)],
-                   ['  21k Gold', '$ ' +price21kBuy.toFixed(2), '$ ' +price21kSell.toFixed(2)],
+                   ['  Lira Ottman', '$ ' +otmaniCoinPrice.toFixed(0), '$ ' +(otmaniCoinPrice-10).toFixed(0)]
                ];
        
                // Set general text properties
@@ -730,14 +732,14 @@ Carat Jewelry
                 
                // Table properties
                const tableStartX = 100; // Padding on the left
-               const tableWidth = canvas.width - 200; // Width accounting for padding
-               const tableStartY = 400;
+               const tableWidth = canvas.width - 150; // Width accounting for padding
+               const tableStartY = 425;
                const rowHeight = 100;
                const cellPadding = 4; // Padding in pixels
 
               // Table properties
-const firstColWidth = (2 / 4) * tableWidth; // First column takes 2 parts
-const colWidth = (1 / 4) * tableWidth; // Remaining two columns take 1 part each
+const firstColWidth = (1.5 / 4) * tableWidth; // First column takes 2 parts
+const colWidth = (1.25 / 4) * tableWidth; // Remaining two columns take 1 part each
 
 // Draw table headers
 headers.forEach((header, index) => {
